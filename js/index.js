@@ -26,6 +26,20 @@ $(function(){
         gsap.to('#navigation-content',.6,{y:"-100%"});
     });
    }); 
+// Função para enviar o e-mail
+function sendEmail() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const subject = document.getElementById('subject').value;
+  const body = document.getElementById('body').value;
+
+  const mailtoLink = `mailto:seuemail@exemplo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nome: ${name}\nEmail: ${email}\n\n${body}`)}`;
+
+  window.location.href = mailtoLink;
+}
+
+// Adiciona o evento de clique ao botão
+document.getElementById('submit').addEventListener('click', sendEmail);
 
 $(function(){
     var TxtRotate = function(el, toRotate, period) {
